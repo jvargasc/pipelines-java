@@ -27,6 +27,6 @@ steps:
       goals: "package"
   - task: AzureRmWebAppDeployment@3
     inputs:
-      azureSubscription: '<Azure service connection>'
+      azureSubscription: 'northwindWebRg'
       WebAppName: 'pipelines-javajv'
       Package: '$(System.DefaultWorkingDirectory)/**/*.war'
