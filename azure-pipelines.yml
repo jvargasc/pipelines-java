@@ -27,6 +27,9 @@ steps:
       goals: "package"
   - task: AzureRmWebAppDeployment@3
     inputs:
-      azureSubscription: 'jvargasc.pipelines-java'
-      WebAppName: 'pipelines-javajv'
-      Package: '$(System.DefaultWorkingDirectory)/**/*.war'
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'pipelines-java - Azure'
+      appType: 'webAppLinux'
+      WebAppName: 
+      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      RuntimeStack: 'JAVA|8-jre8'
