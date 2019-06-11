@@ -27,6 +27,6 @@ steps:
       goals: "package"
   - task: AzureRmWebAppDeployment@3
     inputs:
-      azureSubscription: 'pipelines-java'
+      azureSubscription: 'pipelines-javaRm'
       WebAppName: 'pipelines-javajv'
       Package: '$(System.DefaultWorkingDirectory)/**/*.war'
