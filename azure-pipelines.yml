@@ -25,11 +25,3 @@ steps:
       publishJUnitResults: true
       testResultsFiles: "**/TEST-*.xml"
       goals: "package"
-  - task: AzureRmWebAppDeployment@3
-    inputs:
-      ConnectionType: 'AzureRM'
-      azureSubscription: 'pipelines-java - Azure'
-      appType: 'webAppLinux'
-      WebAppName: 
-      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-      RuntimeStack: 'JAVA|8-jre8'
