@@ -1,36 +1,29 @@
-trigger:
-- master
-
-strategy:
-  matrix:
-    jdk10_linux:
-      imageName: "ubuntu-16.04"
-      jdk_version: "1.10"
-  maxParallel: 2
-
 pool:
-  vmImage: $(imageName)
+  vmImage: 'ubuntu-16.04' # other options: 'macOS-10.13', 'vs2017-win2016'
 
 steps:
-  - task: Maven@3
-    inputs:
-      mavenPomFile: "pom.xml"
-      mavenOptions: "-Xmx3072m"
-      javaHomeOption: "JDKVersion"
-      jdkVersionOption: $(jdk_version)
-      jdkArchitectureOption: "x64"
-      publishJUnitResults: true
-      testResultsFiles: "**/TEST-*.xml"
-      goals: "package"
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: false
+    testResultsFiles: '**/TEST-*.xml'
+    goals: 'package'
 
-  - task: AzureRmWebAppDeployment@3
-    inputs:
-      azureSubscription: 'pipelines-javaRm'
-      WebAppName: 'pipelines-javajv'
-      Package: '$(System.DefaultWorkingDirectory)/**/*.war'
+- script: |
+    echo Starting the build
+    mvn package
+  displayName: 'Build with Maven'
 
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact: drop'
-    inputs:
-      PathtoPublish: '$(build.ArtifactStagingDirectory)'
-      artifactName: 'pipelines-javajv'
+- task: ShellScript@2
+  inputs:
+    scriptPath: 'build.sh'
+
+- task: AzureRmWebAppDeployment@3
+  inputs:
+    azureSubscription: 'pipelines-javaRm'
+    WebAppName: 'pipelines-javajv'
+    Package: '$(System.DefaultWorkingDirectory)/**/*.war'
