@@ -28,3 +28,9 @@ steps:
       azureSubscription: 'pipelines-javaRm'
       WebAppName: 'pipelines-javajv'
       Package: '$(System.DefaultWorkingDirectory)/**/*.war'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    inputs:
+      PathtoPublish: '$(build.ArtifactStagingDirectory)'
+      artifactName: 'pipelines-javajv'
