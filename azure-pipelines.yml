@@ -25,3 +25,9 @@ steps:
       publishJUnitResults: true
       testResultsFiles: "**/TEST-*.xml"
       goals: "package"
+
+  - task: AzureRmWebAppDeployment@3
+    inputs:
+      azureSubscription: '<Azure service connection>'
+      WebAppName: '<Name of web app>'
+      Package: '$(System.DefaultWorkingDirectory)/**/*.war'
