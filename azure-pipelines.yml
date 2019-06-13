@@ -28,6 +28,6 @@ steps:
 
   - task: AzureRmWebAppDeployment@3
     inputs:
-      azureSubscription: '<Azure service connection>'
-      WebAppName: '<Name of web app>'
+      azureSubscription: 'pipelines-javaRm'
+      WebAppName: 'pipelines-javajv'
       Package: '$(System.DefaultWorkingDirectory)/**/*.war'
