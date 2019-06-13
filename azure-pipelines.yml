@@ -1,8 +1,15 @@
 trigger:
 - master
 
+strategy:
+  matrix:
+    jdk10_linux:
+      imageName: "ubuntu-16.04"
+      jdk_version: "1.10"
+  maxParallel: 2
+
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: $(imageName)
 
 steps:
   - task: Maven@3
