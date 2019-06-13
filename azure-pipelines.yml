@@ -18,10 +18,6 @@ steps:
     mvn package
   displayName: 'Build with Maven'
 
-- task: ShellScript@2
-  inputs:
-    scriptPath: 'build.sh'
-
 - task: AzureRmWebAppDeployment@3
   inputs:
     azureSubscription: 'pipelines-javaRm'
