@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/jvargascuevas/pipelines-java/_apis/build/status/jvargasc.pipelines-java?branchName=master)](https://dev.azure.com/jvargascuevas/pipelines-java/_build/latest?definitionId=6&branchName=master)
+[![Build Status](https://jvargasc.visualstudio.com/pipelines-java/_apis/build/status/jvargasc.pipelines-java?branchName=master)](https://jvargasc.visualstudio.com/pipelines-java/_build/latest?definitionId=18&branchName=master)
 
 # Contributing
 
