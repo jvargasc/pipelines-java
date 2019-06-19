@@ -5,7 +5,7 @@
 
 variables:
   # the name of the service connection that you created above
-  serviceConnectionToAzure: onnection-to-pipelinesjava
+  serviceConnectionToAzure: connection-to-pipelinesjava
   # the name of your web app here is the same one you used above
   # when you created the web app using the Azure CLI
   appName: pipelines-javajv
