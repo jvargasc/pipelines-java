@@ -47,6 +47,6 @@ steps:
   displayName: Azure Web App Deploy
   inputs:
     azureSubscription: $(serviceConnectionToAzure)
-    appType: webAppLinux
+    appType: webAppWindows
     appName: $(appName)
     package: $(build.artifactstagingdirectory)/**/*.war
